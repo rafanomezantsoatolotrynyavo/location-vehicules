@@ -1,0 +1,65 @@
+function AProposPage() {
+    const technologies = {
+        "Back-end": ["Python", "Django", "Django REST Framework", "SQLite"],
+        "Front-end": ["React", "Vite", "React Router", "Axios", "Recharts", "react-hot-toast"],
+    };
+
+    return (
+        <div>
+            <h2>À propos</h2>
+
+            <div className="apropos-bloc">
+                <h3>Modélisation du projet</h3>
+                <img
+                    src="/diagramme-classes.png"
+                    alt="Diagramme de classes du projet"
+                    className="apropos-image"
+                />
+            </div>
+
+            <div className="apropos-bloc">
+                <h3>Auteur</h3>
+                <dl className="apropos-fiche">
+                <div>
+                    <dt>Nom</dt>
+                    <dd>Tolotry Ny Avo Cédric RAFANOMEZANTSOA</dd>
+                </div>
+                <div>
+                    <dt>Formation</dt>
+                    <dd>Licence 3 Informatique de Gestion</dd>
+                </div>
+                <div>
+                    <dt>École</dt>
+                    <dd>IS-INFO Ampasamadinika</dd>
+                </div>
+                <div>
+                    <dt>Classe</dt>
+                    <dd>IG FI B</dd>
+                </div>
+                <div>
+                    <dt>Matricule</dt>
+                    <dd>3413/24</dd>
+                </div>
+                </dl>
+            </div>
+
+            <div className="apropos-bloc">
+                <h3>Technologies utilisées</h3>
+                {Object.entries(technologies).map(([categorie, liste]) => (
+                    <div key={categorie} className="apropos-techno-groupe">
+                        <p className="apropos-techno-titre">{categorie}</p>
+                        <div className="apropos-techno-tags">
+                            {liste.map((techno) => (
+                                <span key={techno} className="apropos-tag">
+                                {techno}
+                                </span>
+                            ))}
+                        </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
+}
+
+export default AProposPage;
