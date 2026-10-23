@@ -31,7 +31,14 @@ SECRET_KEY = 'django-insecure-g&fd9*f)^cl5rw_81c4#wd!al)vap_o$(3!51ns4h(@c-co9*x
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = env_list("ALLOWED_HOSTS", "localhost,127.0.0.1")
+
+# Render fournit automatiquement son propre nom d'hôte via cette
+# variable : on l'ajoute pour ne jamais dépendre d'une saisie manuelle
+# exacte dans ALLOWED_HOSTS sur le tableau de bord Render.
+RENDER_EXTERNAL_HOSTNAME = os.getenv("RENDER_EXTERNAL_HOSTNAME")
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 
 # Application definition
