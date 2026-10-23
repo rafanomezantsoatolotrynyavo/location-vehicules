@@ -4,21 +4,28 @@ function AProposPage() {
         "Front-end": ["React", "Vite", "React Router", "Axios", "Recharts", "react-hot-toast"],
     };
 
+    const schemas = [
+        { fichier: "/diagramme-classes.png", legende: "Diagramme de classes" },
+        { fichier: "/mcd.png", legende: "Modèle Conceptuel de Données (MCD)" },
+        { fichier: "/mpd.png", legende: "Modèle Physique de Données (MPD)" },
+    ];
+
     return (
         <div>
             <h2>À propos</h2>
 
             <div className="apropos-bloc">
                 <h3>Modélisation du projet</h3>
-                <img
-                    src="/diagramme-classes.png"
-                    alt="Diagramme de classes du projet"
-                    className="apropos-image"
-                />
+                {schemas.map((schema) => (
+                    <figure key={schema.fichier} className="apropos-schema">
+                    <img src={schema.fichier} alt={schema.legende} className="apropos-image" />
+                    <figcaption>{schema.legende}</figcaption>
+                    </figure>
+                ))}
             </div>
 
             <div className="apropos-bloc">
-                <h3>Auteur</h3>
+                <h3>Informations</h3>
                 <dl className="apropos-fiche">
                 <div>
                     <dt>Nom</dt>

@@ -763,3 +763,18 @@ h1, h2, h3 {
   font-size: 0.85rem;
   font-weight: 600;
 }
+
+.apropos-schema {
+  margin: 0 0 1.5rem;
+}
+
+.apropos-schema:last-child {
+  margin-bottom: 0;
+}
+
+.apropos-schema figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.85rem;
+  color: #64748b;
+  text-align: center;
+}
