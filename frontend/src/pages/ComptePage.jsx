@@ -4,6 +4,8 @@ import toast from "react-hot-toast";
 import { changerMotDePasse, modifierCompte, obtenirCompte } from "../api/auth";
 import { useAuth } from "../context/AuthContext.jsx";
 import { extraireMessageErreur } from "../utils/erreurs";
+import Spinner from "../components/Spinner.jsx";
+
 
 function ComptePage() {
   const { mettreAJourUtilisateur } = useAuth();
@@ -50,7 +52,7 @@ function ComptePage() {
       .catch((erreur) => toast.error(extraireMessageErreur(erreur)));
   }
 
-  if (!compte) return <p>Chargement…</p>;
+  if (!compte) return <Spinner />;
 
   return (
     <div>
