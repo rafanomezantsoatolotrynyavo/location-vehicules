@@ -79,25 +79,3 @@ Le back-end sépare strictement :
 Le front-end suit la même logique : les composants d'affichage (formulaires, tableaux) ne parlent jamais directement à l'API — chaque module a sa propre couche `api/*.js`, appelée uniquement depuis les pages.
 
 ---
-
-## Lancer le projet en local
-
-**Back-end**
-```bash
-cd backend
-python -m venv venv
-venv\Scripts\Activate.ps1        # Windows
-pip install -r requirements.txt
-# copier .env.example en .env et le compléter
-python manage.py migrate
-python manage.py createsuperuser
-python manage.py runserver
-```
-
-**Front-end**
-```bash
-cd frontend
-npm install
-# copier .env.example en .env si besoin
-npm run dev
-```
